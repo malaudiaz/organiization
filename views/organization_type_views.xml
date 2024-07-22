@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View organization.type View Tree -->
+    <record id="view_organization_type_tree" model="ir.ui.view">
+        <field name="name">view.organization.type.tree</field>
+        <field name="model">organization.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- View organization.type Kanban -->
+    <record model="ir.ui.view" id="view_organization_type_kanban">
+        <field name="name">view.organization.type.kanban</field>
+        <field name="model">organization.type</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name" />
+                <field name="description" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click rounded">
+
+                            <div class="oe_kanban_details">
+
+                                <div class="o_kanban_record_top mb16">
+                                    <strong>
+                                        <field name="name" />
+                                    </strong>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <field name="description" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- View organization.type form -->
+    <record id="view_organization_type_form" model="ir.ui.view">
+        <field name="name">view.organization.type.form</field>
+        <field name="model">organization.type</field>
+        <field name="arch" type="xml">
+            <form string="Organization Type">
+                <group>
+                    <field name="name" />
+                    <field name="description" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- View organization.type search -->
+    <record id="view_organization_type_search" model="ir.ui.view">
+        <field name="name">view.organization.type.search</field>
+        <field name="model">organization.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action organization.type -->
+    <record id="action_organization_type" model="ir.actions.act_window">
+        <field name="name">Tipos de Organizacions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">organization.type</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Organization Type.
+            </p>
+        </field>
+    </record>
+
+</odoo>

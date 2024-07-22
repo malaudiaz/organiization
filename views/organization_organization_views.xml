@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View organization.organization View Tree -->
+    <record id="view_organization_organization_tree" model="ir.ui.view">
+        <field name="name">view.organization.organization.tree</field>
+        <field name="model">organization.organization</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="initials" />
+                <field name="type" />
+                <field name="parent_id" />
+                <field name="logo" widget='image' height="30px" width="30px"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!-- View organization.organization View Kanban -->
+    <record model="ir.ui.view" id="kanban_domino_organization_type_tree">
+            <field name="name">organization view kanban</field>
+            <field name="model">organization.organization</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="name" />
+                    <field name="initials" />
+                    <field name="logo" />
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click rounded">
+
+                                <div class="o_kanban_image">
+                                    <img alt="Logotipo"
+                                        t-att-src="kanban_image('organization.organization', 'logo',record.id.raw_value)" />
+                                </div>
+
+                                <div class="oe_kanban_details">
+
+                                    <div class="o_kanban_record_top mb16">
+                                        <strong>
+                                            <field name="name" />
+                                        </strong>
+                                    </div>
+
+                                    <strong>
+                                        <field name="initials" />
+                                    </strong>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+    </record>
+
+    <!-- View organization.organization hierarchy -->
+
+    <record id="organization_view_hierarchy" model="ir.ui.view">
+        <field name="name">organization_view_hierarchy</field>
+        <field name="model">organization.organization</field>
+        <field name="arch" type="xml">
+            <hierarchy child_field="child_ids"
+                draggable="1">
+                <field name="name" />
+                <templates>
+                    <t t-name="hierarchy-box">
+                        <div
+                            t-attf-class="o_hierarchy_node_header d-flex justify-content-center pb-4"
+                            t-att-title="parent_id">
+
+                            <field name="logo" widget='image' height="30px" width="30px" class="rounded-circle"/>
+
+                        </div>
+                        <div class="o_hierarchy_node_body d-flex flex-column text-center">
+                            <div class="w-100 position-relative">
+                                <field class="fw-bold" name="name" />
+                                <br />
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </hierarchy>
+        </field>
+    </record>
+
+    <!-- View organization.organization form -->
+    <record id="view_organization_organization_form" model="ir.ui.view">
+        <field name="name">view.organization.organization.form</field>
+        <field name="model">organization.organization</field>
+        <field name="arch" type="xml">
+            <form string="Organization Organization">
+
+                <field name="logo" widget="image" class="oe_avatar"/>
+                <field name="file_name" invisible="1" field_id="file_name_0" />
+
+                <group>
+                    <field name="name" placeholder="Name..." />
+                    <field name="type" placeholder="Tipo de Organización..." />
+                    <field name="parent_id" placeholder="Subordinada a..." />
+                    <field name="initials" placeholder="Sigla" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- View organization.organization search -->
+    <record id="view_organization_organization_search" model="ir.ui.view">
+        <field name="name">view.organization.organization.search</field>
+        <field name="model">organization.organization</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action organization.organization -->
+    <record id="action_organization_organization" model="ir.actions.act_window">
+        <field name="name">Organizaciones</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">organization.organization</field>
+        <field name="view_mode">tree,kanban,form,hierarchy</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                No hay datos, haga clic aquí para agregar nueva organización.
+            </p>
+        </field>
+    </record>
+
+</odoo>

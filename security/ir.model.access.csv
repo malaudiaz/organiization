@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_organization_type_manager,organization_type_manager,model_organization_type,,1,1,1,1
+access_organization_organization_manager,organization_organization_manager,model_organization_organization,,1,1,1,1
+access_organization_members_manager,organization_members_manager,model_organization_members,,1,1,1,1

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View organization.members View Tree -->
+    <record id="view_organization_members_tree" model="ir.ui.view">
+        <field name="name">view.organization.members.tree</field>
+        <field name="model">organization.members</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="photo" widget='image' height="30px" width="30px" />
+                <field name="firts_name" />
+                <field name="last_name" />
+                <field name="alias" />
+                <field name="phone" />
+                <field name="email" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- View organization.organization View Kanban -->
+    <record model="ir.ui.view" id="view_organization_members_kanban">
+        <field name="name">members view kanban</field>
+        <field name="model">organization.members</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="firts_name" />
+                <field name="last_name" />
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click rounded">
+
+                            <div class="o_kanban_image">
+                                <img alt="Foto"
+                                    t-att-src="kanban_image('organization.members', 'photo',record.id.raw_value)" />
+                            </div>
+
+                            <div class="oe_kanban_details">
+
+                                <div class="o_kanban_record_top mb16">
+                                    <strong>
+                                        <field name="firts_name" />
+                                    </strong>
+                                </div>
+
+                                <strong>
+                                    <field name="last_name" />
+                                </strong>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- View organization.members form -->
+    <record id="view_organization_members_form" model="ir.ui.view">
+        <field name="name">view.organization.members.form</field>
+        <field name="model">organization.members</field>
+        <field name="arch" type="xml">
+            <form string="Organization Members">
+
+                <field name="photo" widget="image" class="oe_avatar border border-primary" />
+    
+                <group>
+                    <field name="firts_name" placeholder="Nombre..." />
+                    <field name="last_name" placeholder="Apellidos..." />
+                    <field name="alias" placeholder="Alias..." />
+                    <field name="phone" placeholder="Teléfono" />
+                    <field name="email" placeholder="Correo" />
+                    <field name="organization"
+                        context="{'form_view_ref': 'organization.view_organization_organization_form'}"
+                        widget="many2many_tags"></field>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- View organization.members search -->
+    <record id="view_organization_members_search" model="ir.ui.view">
+        <field name="name">view.organization.members.search</field>
+        <field name="model">organization.members</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Nombre" name="firts_name" domain="[]"
+                        context="{'group_by':'firts_name'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action organization.members -->
+    <record id="action_organization_members" model="ir.actions.act_window">
+        <field name="name">Organization Members</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">organization.members</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                No hay datos, haga clic aquí para agregar nuevos miembros de la organización.
+            </p>
+        </field>
+    </record>
+
+</odoo>
