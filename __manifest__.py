@@ -14,6 +14,7 @@
         "views/organization_members_views.xml",
         "views/organization_country_views.xml",
         "views/organization_city_views.xml",
+        "views/organization_position_views.xml",
         "views/organization_menuitem.xml",
         "security/ir.model.access.csv"
     ],

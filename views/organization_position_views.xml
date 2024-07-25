@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View organization.position View Tree -->
+    <record id="view_organization_position_tree" model="ir.ui.view">
+        <field name="name">view.organization.position.tree</field>
+        <field name="model">organization.position</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View organization.position form -->
+    <record id="view_organization_position_form" model="ir.ui.view">
+        <field name="name">view.organization.position.form</field>
+        <field name="model">organization.position</field>
+        <field name="arch" type="xml">
+            <form string="Organization Position">
+                <group>
+                    <field name="name" placeholder="Name..."/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- View organization.position search -->
+    <record id="view_organization_position_search" model="ir.ui.view">
+        <field name="name">view.organization.position.search</field>
+        <field name="model">organization.position</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action organization.position -->
+    <record id="action_organization_position" model="ir.actions.act_window">
+        <field name="name">Organization Position</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">organization.position</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Organization Position.
+            </p>
+        </field>
+    </record>
+
+</odoo>
