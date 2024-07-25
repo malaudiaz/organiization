@@ -1,8 +1,8 @@
 {
     'name': 'Organizaciones',
     'version': '1.0.0',
-    'description': """ Modulo para crear organizaciones gerarquicas por tipo """,
-    'summary': """ Modulo para crear organizaciones gerarquicas por tipo """,
+    'description': """ Modulo para crear organizaciones jerarquicas por tipo """,
+    'summary': """ Modulo para crear organizaciones jerarquicas por tipo """,
     'author': '',
     'website': '',
     'category': '',
@@ -15,6 +15,7 @@
         "views/organization_country_views.xml",
         "views/organization_city_views.xml",
         "views/organization_position_views.xml",
+        "views/organization_org_member_position_views.xml",
         "views/organization_menuitem.xml",
         "security/ir.model.access.csv"
     ],
