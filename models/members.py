@@ -27,21 +27,5 @@ class members(models.Model):
     )
 
     email = fields.Char(
-        string="Correo", readonly=False, required=False, help="Correo"
-    )
-    
-    # def _get_default_org(self):
-    #     org = self.browse(self._context.get("current_organization"))
-    #     if org:
-    #         return [org.id]
-    #     else:
-    #         return []    
-    
-    organization = fields.Many2many(
-        string="Organización", 
-        comodel_name="organization.organization", 
-        relation="organization_member",        
-        column1="organization_id",
-        column2="member_id",   
-        required=True     
+        string="Correo", readonly=False, required=True, help="Correo"
     )

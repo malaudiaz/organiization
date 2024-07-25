@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id='type_1' model='organization.type'>
+            <field name='name'>Federaciones</field>
+            <field name='description'>Tipo de Organización para las Federaciones de Domino
+</field>
+        </record>
+        <record id='type_2' model='organization.type'>
+            <field name='name'>Club</field>
+            <field name='description'>Tipo de Organización para los Clubes de Domino</field>
+        </record>
+    </data>
+</odoo>

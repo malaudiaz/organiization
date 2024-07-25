@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View organization.country View Tree -->
+    <record id="view_organization_country_tree" model="ir.ui.view">
+        <field name="name">view.organization.country.tree</field>
+        <field name="model">organization.country</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="initials"/>
+                <field name="flag" widget='image' height="30px" width="30px" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- View organization.country View Kanban -->
+    <record model="ir.ui.view" id="view_organization_country_kanban">
+        <field name="name">country view kanban</field>
+        <field name="model">organization.country</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name" />
+                <field name="initials" />
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click rounded">
+
+                            <div class="o_kanban_image">
+                                <img alt="Foto"
+                                    t-att-src="kanban_image('organization.country', 'flag',record.id.raw_value)" />
+                            </div>
+
+                            <div class="oe_kanban_details">
+
+                                <div class="o_kanban_record_top mb16">
+                                    <strong>
+                                        <field name="name" />
+                                    </strong>
+                                </div>
+
+                                <strong>
+                                    <field name="initials" />
+                                </strong>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- View organization.country form -->
+    <record id="view_organization_country_form" model="ir.ui.view">
+        <field name="name">view.organization.country.form</field>
+        <field name="model">organization.country</field>
+        <field name="arch" type="xml">
+            <form string="Organization Country">
+                <field name="flag" widget="image" class="oe_avatar border border-primary" />
+    
+                <group>
+                    <field name="name" placeholder="Nombre..." />
+                    <field name="initials" placeholder="Sigla..." />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- View organization.country search -->
+    <record id="view_organization_country_search" model="ir.ui.view">
+        <field name="name">view.organization.country.search</field>
+        <field name="model">organization.country</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action organization.country -->
+    <record id="action_organization_country" model="ir.actions.act_window">
+        <field name="name">Organization Country</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">organization.country</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Organization Country.
+            </p>
+        </field>
+    </record>
+
+</odoo>

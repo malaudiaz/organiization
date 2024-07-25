@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View organization.city View Tree -->
+    <record id="view_organization_city_tree" model="ir.ui.view">
+        <field name="name">view.organization.city.tree</field>
+        <field name="model">organization.city</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="initials"/>
+                <field name="country_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View organization.city View Kanban -->
+    <record model="ir.ui.view" id="view_organization_city_kanban">
+        <field name="name">city view kanban</field>
+        <field name="model">organization.city</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name" />
+                <field name="initials" />
+                <field name="country_id" />
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click rounded">
+
+                            <div class="oe_kanban_details">
+
+                                <div class="o_kanban_record_top mb16">
+                                    <strong>
+                                        <field name="initials" />
+                                    </strong>
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <strong>
+                                        <field name="name" />
+                                    </strong>
+    
+                                    <strong>
+                                        <field name="country_id" />
+                                    </strong>
+                                </div>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- View organization.city form -->
+    <record id="view_organization_city_form" model="ir.ui.view">
+        <field name="name">view.organization.city.form</field>
+        <field name="model">organization.city</field>
+        <field name="arch" type="xml">
+            <form string="Organization City">
+                <group>
+                    <field name="name" placeholder="Nombre..." />
+                    <field name="initials" placeholder="Sigla..." />
+                    <field name="country_id" placeholder="País..." />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- View organization.city search -->
+    <record id="view_organization_city_search" model="ir.ui.view">
+        <field name="name">view.organization.city.search</field>
+        <field name="model">organization.city</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action organization.city -->
+    <record id="action_organization_city" model="ir.actions.act_window">
+        <field name="name">Organization City</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">organization.city</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Organization City.
+            </p>
+        </field>
+    </record>
+
+</odoo>

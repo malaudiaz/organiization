@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <record id='city_1' model='organization.city'>
+            <field name='name'>La Habana</field>
+            <field name='initials'>LHB</field>
+            <field name='country_id'>1
+</field>
+        </record>
+        <record id='city_2' model='organization.city'>
+            <field name='name'>Guantanamo</field>
+            <field name='initials'>GTM</field>
+            <field name='country_id'>1
+</field>
+        </record>
+        <record id='city_3' model='organization.city'>
+            <field name='name'>Santo Domingo</field>
+            <field name='initials'>STD</field>
+            <field name='country_id'>2
+</field>
+        </record>
+        <record id='city_4' model='organization.city'>
+            <field name='name'>Miami</field>
+            <field name='initials'>MIA</field>
+            <field name='country_id'>3</field>
+        </record>
+    </data>
+</odoo>

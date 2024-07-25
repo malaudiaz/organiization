@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id='country_1' model='organization.country'>
+            <field name='name'>Cuba</field>
+            <field name='initials'>CUB
+</field>
+        </record>
+        <record id='country_2' model='organization.country'>
+            <field name='name'>Republica Dominicana</field>
+            <field name='initials'>Dom
+</field>
+        </record>
+        <record id='country_3' model='organization.country'>
+            <field name='name'>Estados Unidos</field>
+            <field name='initials'>USA</field>
+        </record>
+    </data>
+</odoo>

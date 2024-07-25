@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
 from odoo import _
 
 
@@ -43,11 +43,29 @@ class organization(models.Model):
         inverse_name="parent_id",
     )
 
-    # member = fields.Many2many(
-    #     string="Miembros",
-    #     comodel_name="organization.members",
-    #     relation="organization_member",        
-    #     help="Miembros",
-    #     column1="organization_id",
-    #     column2="member_id"
-    # )
+    country_id = fields.Many2one(
+        string="País",
+        comodel_name="organization.country"
+    )
+
+    city_id = fields.Many2one(
+        string="Ciudad",
+        comodel_name="organization.city"
+    )
+       
+    @api.onchange('country_id')
+    def change_country_id(self):
+        if self.country_id:
+            domain = [('country_id', '=', self.country_id.id)]
+        else:
+            domain = []
+        
+        return {'domain': {'city_id': domain}}
+       
+    members = fields.Many2many(
+        string="Miembros", 
+        comodel_name="organization.members",
+        relation="organization_member",
+        column1="organization_id",
+        column2="member_id"
+    )

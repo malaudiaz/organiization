@@ -71,9 +71,6 @@
                     <field name="alias" placeholder="Alias..." />
                     <field name="phone" placeholder="Teléfono" />
                     <field name="email" placeholder="Correo" />
-                    <field name="organization"
-                        context="{'form_view_ref': 'organization.view_organization_organization_form'}"
-                        widget="many2many_tags"></field>
                 </group>
             </form>
         </field>

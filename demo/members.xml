@@ -1,0 +1,74 @@
+<odoo>
+    <data>
+        <record id='members_1' model='organization.members'>
+            <field name='firts_name'>Yancy</field>
+            <field name='last_name'>Pritchett</field>
+            <field name='phone'>1-800-0001</field>
+            <field name='email'>pritchett@example.com
+</field>
+        </record>
+        <record id='members_2' model='organization.members'>
+            <field name='firts_name'>Albertina</field>
+            <field name='last_name'>Kiffe</field>
+            <field name='phone'>1-800-0002</field>
+            <field name='email'>kiffe@example.com
+</field>
+        </record>
+        <record id='members_3' model='organization.members'>
+            <field name='firts_name'>Fianna</field>
+            <field name='last_name'>Machon</field>
+            <field name='phone'>1-800-0003</field>
+            <field name='email'>machon@example.com
+</field>
+        </record>
+        <record id='members_4' model='organization.members'>
+            <field name='firts_name'>Lammond</field>
+            <field name='last_name'>Badder</field>
+            <field name='phone'>1-800-0004</field>
+            <field name='email'>badder@example.com
+</field>
+        </record>
+        <record id='members_5' model='organization.members'>
+            <field name='firts_name'>Archibold</field>
+            <field name='last_name'>Jenkins</field>
+            <field name='phone'>1-800-0005</field>
+            <field name='email'>jenkins@example.com
+</field>
+        </record>
+        <record id='members_6' model='organization.members'>
+            <field name='firts_name'>Kirsteni</field>
+            <field name='last_name'>Yeats</field>
+            <field name='phone'>1-800-0006</field>
+            <field name='email'>yeats@example.com
+</field>
+        </record>
+        <record id='members_7' model='organization.members'>
+            <field name='firts_name'>Silva</field>
+            <field name='last_name'>Mangeot</field>
+            <field name='phone'>1-800-0007</field>
+            <field name='email'>mangeot@example.com
+</field>
+        </record>
+        <record id='members_8' model='organization.members'>
+            <field name='firts_name'>Wye</field>
+            <field name='last_name'>Feldklein</field>
+            <field name='phone'>1-800-0008</field>
+            <field name='email'>feldklein@example.com
+</field>
+        </record>
+        <record id='members_9' model='organization.members'>
+            <field name='firts_name'>Bobbye</field>
+            <field name='last_name'>Dubble</field>
+            <field name='phone'>1-800-0009</field>
+            <field name='email'>dubble@example.com
+</field>
+        </record>
+        <record id='members_10' model='organization.members'>
+            <field name='firts_name'>Tani</field>
+            <field name='last_name'>Durram</field>
+            <field name='phone'>1-800-0010</field>
+            <field name='email'>durram@example.com
+</field>
+        </record>
+    </data>
+</odoo>
