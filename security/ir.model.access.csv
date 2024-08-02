@@ -5,3 +5,4 @@ access_organization_members_manager,organization_members_manager,model_organizat
 access_organization_country_manager,organization_country_manager,model_organization_country,,1,1,1,1
 access_organization_city_manager,organization_city_manager,model_organization_city,,1,1,1,1
 access_organization_position_manager,organization_position_manager,model_organization_position,,1,1,1,1
+access_organization_structure_manager,organization_structure_manager,model_organization_structure,,1,1,1,1

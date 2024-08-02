@@ -29,4 +29,11 @@ class members(models.Model):
     email = fields.Char(
         string="Correo", readonly=False, required=True, help="Correo"
     )
+
+    country_id = fields.Many2one(
+        string="País",
+        comodel_name="organization.country"
+    )
+    
+    structure = fields.One2many(comodel_name="organization.structure", inverse_name="member")
     

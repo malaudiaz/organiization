@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View organization.structure View Tree -->
+    <record id="view_organization_structure_tree" model="ir.ui.view">
+        <field name="name">view.organization.structure.tree</field>
+        <field name="model">organization.structure</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- <field name="organization"/> -->
+                <field name="position"/>
+                <field name="member"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View organization.structure form -->
+    <record id="view_organization_structure_form" model="ir.ui.view">
+        <field name="name">view.organization.structure.form</field>
+        <field name="model">organization.structure</field>
+        <field name="arch" type="xml">
+            <form string="Organization Structure">
+                <sheet>
+                    <group>
+                        <!-- <field name="organization" placeholder="Organización..."/> -->
+                        <field name="position" placeholder="Cargo..."/>
+                        <field name="member" placeholder="Miembro..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View organization.structure search -->
+    <record id="view_organization_structure_search" model="ir.ui.view">
+        <field name="name">view.organization.structure.search</field>
+        <field name="model">organization.structure</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Cargo" name="position" domain="[]" context="{'group_by':'position'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action organization.structure -->
+    <record id="action_organization_structure" model="ir.actions.act_window">
+        <field name="name">Organization Structure</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">organization.structure</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Organization Structure.
+            </p>
+        </field>
+    </record>
+
+</odoo>

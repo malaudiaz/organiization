@@ -69,3 +69,8 @@ class organization(models.Model):
         column1="organization_id",
         column2="member_id"
     )
+  
+    structure = fields.One2many(
+        string="Estructura", comodel_name="organization.structure", inverse_name="organization"
+    )
+    

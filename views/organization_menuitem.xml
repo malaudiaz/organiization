@@ -5,7 +5,7 @@
         <menuitem id="organization_menu_action" name="Organizaciones" action="action_organization_organization" sequence="1"/>  
         <!-- <menuitem id="organization_members_menu_action" name="Miembros" action="action_organization_members" sequence="1"/>   -->
 
-        <menuitem id="organization_configuration_menu" name="Configuration" sequence="2">
+        <menuitem id="organization_configuration_menu" name="Configuración" sequence="2">
             <menuitem id="organization_country_menu_action" name="Paises" action="action_organization_country"/>  
             <menuitem id="organization_city_menu_action" name="Ciudades" action="action_organization_city"/>  
             <menuitem id="organization_type_menu_action" name="Tipos de Organizaciones" action="action_organization_type"/> 

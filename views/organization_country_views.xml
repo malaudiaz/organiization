@@ -7,9 +7,9 @@
         <field name="model">organization.country</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
-                <field name="initials"/>
-                <field name="flag" widget='image' height="30px" width="30px" />
+                <field name="name" />
+                <field name="initials" />
+                <field name="flag" widget='image' options="{'size': [30, 30]}" />
             </tree>
         </field>
     </record>
@@ -34,15 +34,14 @@
 
                             <div class="oe_kanban_details">
 
-                                <div class="o_kanban_record_top mb16">
+                                <div class="mb16 d-flex flex-column gap-2 pt-2">
+                                    <strong>
+                                        <field name="initials" />
+                                    </strong>
                                     <strong>
                                         <field name="name" />
                                     </strong>
                                 </div>
-
-                                <strong>
-                                    <field name="initials" />
-                                </strong>
 
                             </div>
                         </div>
@@ -58,12 +57,44 @@
         <field name="model">organization.country</field>
         <field name="arch" type="xml">
             <form string="Organization Country">
-                <field name="flag" widget="image" class="oe_avatar border border-primary" />
-    
-                <group>
-                    <field name="name" placeholder="Nombre..." />
-                    <field name="initials" placeholder="Sigla..." />
-                </group>
+
+                <header>
+                    <field name="state" widget="statusbar" />
+                    <button
+                        string="Confirmar"
+                        state="cancel"
+                        class="oe_highlight"
+                        type="object"
+                        name="act_confirm" />
+
+                    <button
+                        string="Cancelar"
+                        state="confirm"
+                        class="oe_highlight"
+                        type="object"
+                        name="act_cancel" />
+
+                </header>
+
+                <sheet>
+
+                    <div class="d-flex flex-row gap-4">
+                        <div>
+                            <field name="flag" widget="image"
+                                class="oe_avatar border border-primary rounded" />
+                        </div>
+                        <div class="w-100 p-4">
+                            <group>
+                                <field name="name" class="custom-input"
+                                    placeholder="Nombre..."/>
+                                <field name="initials" class="form-control form-control-sm bg-light"
+                                    placeholder="Sigla..." />
+                            </group>
+                        </div>
+                    </div>
+
+
+                </sheet>
             </form>
         </field>
     </record>
@@ -75,7 +106,7 @@
         <field name="arch" type="xml">
             <search>
                 <group expand="1" string="Group By">
-                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}" />
                 </group>
             </search>
         </field>

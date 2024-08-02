@@ -7,6 +7,7 @@ from odoo import _
 class country(models.Model):
     _name = "organization.country"
     _description = "Paises"
+    # _rec_name = "initials"
 
     name = fields.Char(
         string="País", readonly=False, required=True, help="Nombre del País"
@@ -15,6 +16,7 @@ class country(models.Model):
     initials = fields.Char(
         string="Siglas",
         readonly=False,
+        size=3,
         required=True,
         help="Introduzca las siglas del País",
     )
@@ -28,3 +30,18 @@ class country(models.Model):
         inverse_name="country_id",
         required=True,
     )
+    
+    state = fields.Selection([("confirm", "Confirmar"), ("cancel", "Cancelar")])
+    
+    def name_get(self):
+        result = []
+        for rec in self:
+            result.append((rec.id, f'{rec.initials} - {rec.name}'))
+                  
+        return result
+    
+    def act_confirm(self):
+        self.state="confirm"
+        
+    def act_cancel(self):
+        self.state="cancel"

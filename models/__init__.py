@@ -6,3 +6,4 @@ from . import members
 from . import city
 from . import country
 from . import position
+from . import structure

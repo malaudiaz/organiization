@@ -7,12 +7,13 @@
         <field name="model">organization.members</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="photo" widget='image' height="30px" width="30px" />
+                <field name="photo" widget='image' options="{'size': [30, 30]}" />
                 <field name="firts_name" />
                 <field name="last_name" />
                 <field name="alias" />
                 <field name="phone" />
                 <field name="email" />
+                <field name="country_id" />
             </tree>
         </field>
     </record>
@@ -63,15 +64,22 @@
         <field name="arch" type="xml">
             <form string="Organization Members">
 
-                <field name="photo" widget="image" class="oe_avatar border border-primary" />
-    
-                <group>
-                    <field name="firts_name" placeholder="Nombre..." />
-                    <field name="last_name" placeholder="Apellidos..." />
-                    <field name="alias" placeholder="Alias..." />
-                    <field name="phone" placeholder="Teléfono" />
-                    <field name="email" placeholder="Correo" />
-                </group>
+
+
+                <sheet>
+
+                    <field name="photo" widget="image" class="oe_avatar border border-primary" />
+
+                    <group>
+                        <field name="firts_name" placeholder="Nombre..." />
+                        <field name="last_name" placeholder="Apellidos..." />
+                        <field name="alias" placeholder="Alias..." />
+                        <field name="phone" placeholder="Teléfono" />
+                        <field name="email" placeholder="Correo" />
+                        <field name="country_id" placeholder="País..." options="{'no_open': True, 'no_create': True}"/>
+                    </group>
+
+                </sheet>
             </form>
         </field>
     </record>
