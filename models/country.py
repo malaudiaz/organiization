@@ -32,14 +32,7 @@ class country(models.Model):
     )
     
     state = fields.Selection([("confirm", "Confirmar"), ("cancel", "Cancelar")])
-    
-    def name_get(self):
-        result = []
-        for rec in self:
-            result.append((rec.id, f'{rec.initials} - {rec.name}'))
-                  
-        return result
-    
+        
     def act_confirm(self):
         self.state="confirm"
         

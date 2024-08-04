@@ -7,7 +7,8 @@
             <field name='parent_id'></field>
             <field name='country_id'>3</field>
             <field name='city_id'>4</field>
-            <field name='members' eval="[(6,0,[ref('members_1'),ref('members_2')])]"></field>
+            <field name='members'
+                eval="[(6,0,[ref('members_1'),ref('members_4'),ref('members_2')])]"></field>
         </record>
         <record id='organization_2' model='organization.organization'>
             <field name='name'>Federación Cubana de Domino</field>
@@ -16,7 +17,7 @@
             <field name='parent_id'>1</field>
             <field name='country_id'>1</field>
             <field name='city_id'>2</field>
-            <field name='members' eval="[(6,0,[ref('members_3'),ref('members_4')])]"></field>
+            <field name='members' eval="[(6,0,[ref('members_4')])]"></field>
         </record>
         <record id='organization_3' model='organization.organization'>
             <field name='name'>Federación de Domino de la Florida</field>
@@ -26,7 +27,7 @@
             <field name='country_id'>3</field>
             <field name='city_id'>4</field>
             <field name='members'
-                eval="[(6,0,[ref('members_4'),ref('members_5'),ref('members_6'),ref('members_7')])]"></field>
+                eval="[(6,0,[ref('members_4'),ref('members_3'),ref('members_2'),ref('members_1')])]"></field>
         </record>
         <record id='organization_4' model='organization.organization'>
             <field name='name'>Federación Dominicana de Domino</field>
@@ -36,7 +37,7 @@
             <field name='country_id'>2</field>
             <field name='city_id'>3</field>
             <field name='members'
-                eval="[(6,0,[ref('members_8'),ref('members_9')])]"></field>
+                eval="[(6,0,[ref('members_2'),ref('members_3'),ref('members_1')])]"></field>
         </record>
         <record id='organization_5' model='organization.organization'>
             <field name='name'>Club Hialiah Domino</field>
@@ -45,7 +46,8 @@
             <field name='parent_id'>3</field>
             <field name='country_id'>3</field>
             <field name='city_id'>4</field>
-            <field name='members' eval="[(6,0,[ref('members_1'), ref('members_10')])]"></field>
+            <field name='members'
+                eval="[(6,0,[ref('members_1'),ref('members_4'),ref('members_3'),ref('members_2')])]"></field>
         </record>
     </data>
 </odoo>

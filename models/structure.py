@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
 from odoo import _
 
 
@@ -13,8 +13,12 @@ class structure(models.Model):
     )
 
     position = fields.Many2one(comodel_name="organization.position", string="Cargo")
-
-    member = fields.Many2one(string="Miembro", comodel_name="organization.members", ondelete="set null")
+           
+    members = fields.Many2one(
+        string="Miembro",
+        comodel_name="organization.members",
+        ondelete="set null"
+    )
 
     _sql_constraints = [
         (
@@ -28,3 +32,19 @@ class structure(models.Model):
             "Miembro repetido",
         ),
     ]
+    
+    @api.onchange("position")
+    def _onchange_position(self):
+        members = self._get_members()
+        self.members = [(4, members.id)]  
+
+    def _get_members(self):
+        for member in self:
+            members = member.env["organization.organization"].search([("organization_id", "=", "1")])
+            if len(members) > 0:
+                print("dfsdfdsf")
+            else:
+                print("dfsdfdsf")
+            
+            return members
+

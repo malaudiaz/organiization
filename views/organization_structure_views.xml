@@ -9,7 +9,7 @@
             <tree>
                 <!-- <field name="organization"/> -->
                 <field name="position"/>
-                <field name="member"/>
+                <field name="members"/>
             </tree>
         </field>
     </record>
@@ -24,7 +24,7 @@
                     <group>
                         <!-- <field name="organization" placeholder="Organización..."/> -->
                         <field name="position" placeholder="Cargo..."/>
-                        <field name="member" placeholder="Miembro..."/>
+                        <field name="members" placeholder="Miembro..."/>
                     </group>
                 </sheet>
             </form>

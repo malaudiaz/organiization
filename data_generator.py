@@ -88,6 +88,13 @@ xml_generator(
     ["name", "description"],
     "type",
 )
+xml_generator(
+    current_dir + "csv/position.csv",
+    current_dir + "demo/position.xml",
+    "organization.position",
+    ["name"],
+    "position",
+)
 
 xml_generator(
     current_dir + "csv/organization.csv",

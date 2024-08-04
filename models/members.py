@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api
 from odoo import _
 
 class members(models.Model):
     _name = "organization.members"
     _description = "miembros de las distintas organizacions"
     # _inherit = "res.company"
+    # _rec_name = "firts_name"
     
     firts_name = fields.Char(
         string="Nombre", readonly=False, required=True, help="Nombre"
@@ -34,6 +35,24 @@ class members(models.Model):
         string="País",
         comodel_name="organization.country"
     )
+        
+    # structure = fields.One2many(comodel_name="organization.structure", inverse_name="member")
     
-    structure = fields.One2many(comodel_name="organization.structure", inverse_name="member")
+    def name_get(self):
+        result = []
+        for rec in self:
+            result.append((rec.id, f'{rec.firts_name} - {rec.last_name}'))
+                  
+        return result
     
+    display_name = fields.Char(compute='_compute_display_name')
+
+    @api.depends('firts_name', 'last_name')  # depends on the fields that make up your name
+    def _compute_display_name(self):
+
+        for record in self:
+
+            names = [record.firts_name, record.last_name]  # adjust this line based on your needs
+
+            record.display_name = ' '.join(filter(None, names))
+

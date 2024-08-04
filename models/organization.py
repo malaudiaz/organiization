@@ -74,3 +74,4 @@ class organization(models.Model):
         string="Estructura", comodel_name="organization.structure", inverse_name="organization"
     )
     
+    

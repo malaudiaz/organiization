@@ -31,6 +31,7 @@
         'demo/country.xml',
         'demo/city.xml',
         'demo/type.xml',
+        'demo/position.xml',
         'demo/members.xml',
         'demo/organization.xml'
     ],

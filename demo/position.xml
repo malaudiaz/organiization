@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id='position_1' model='organization.position'>
+            <field name='name'>Presidente
+</field>
+        </record>
+        <record id='position_2' model='organization.position'>
+            <field name='name'>Vice-Presidente
+</field>
+        </record>
+        <record id='position_3' model='organization.position'>
+            <field name='name'>Secretario(a)
+</field>
+        </record>
+        <record id='position_4' model='organization.position'>
+            <field name='name'>Tesorero(a)
+</field>
+        </record>
+        <record id='position_5' model='organization.position'>
+            <field name='name'>Vocal # 1
+</field>
+        </record>
+        <record id='position_6' model='organization.position'>
+            <field name='name'>Vocal # 2
+</field>
+        </record>
+        <record id='position_7' model='organization.position'>
+            <field name='name'>Vocal # 3
+</field>
+        </record>
+        <record id='position_8' model='organization.position'>
+            <field name='name'>Vocal # 4
+</field>
+        </record>
+    </data>
+</odoo>
