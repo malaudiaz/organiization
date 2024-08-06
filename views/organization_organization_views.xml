@@ -114,14 +114,14 @@
                         <group>
                             <field name="name" placeholder="Name..." />
                             <field name="type" placeholder="Tipo de Organización..." />
-                            <field name="parent_id" placeholder="Subordinada a..." />
+                            <field name="parent_id" placeholder="Subordinada a..." widget="many2one_avatar_user" />
                         </group>
                         <!-- <field name="initials" placeholder="Sigla" widget="char_emojis" /> así
                         se hace un textbox con emojis-->
 
                         <group>
                             <field name="initials" placeholder="Sigla" widget="char_emojis" />
-                            <field name="country_id" placeholder="País" />
+                            <field name="country_id" placeholder="País" widget="many2one_avatar_user"/>
                             <field name="city_id" placeholder="Ciudad"
                                 domain="[('country_id', '=', country_id)]" />
                         </group>

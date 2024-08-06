@@ -35,16 +35,7 @@ class members(models.Model):
         string="País",
         comodel_name="organization.country"
     )
-        
-    # structure = fields.One2many(comodel_name="organization.structure", inverse_name="member")
-    
-    def name_get(self):
-        result = []
-        for rec in self:
-            result.append((rec.id, f'{rec.firts_name} - {rec.last_name}'))
-                  
-        return result
-    
+           
     display_name = fields.Char(compute='_compute_display_name')
 
     @api.depends('firts_name', 'last_name')  # depends on the fields that make up your name

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 from odoo import _
 
 
@@ -67,11 +68,27 @@ class organization(models.Model):
         comodel_name="organization.members",
         relation="organization_member",
         column1="organization_id",
-        column2="member_id"
+        column2="members_id"
     )
   
     structure = fields.One2many(
         string="Estructura", comodel_name="organization.structure", inverse_name="organization"
     )
-    
+
+    @api.constrains("structure")
+    def _check_data_organization(self):
+        for record in self:
+            for struct in record.structure:
+                isExist = False
+                for member in record.members:
+                    if (struct.display_member_id == member.id):
+                        isExist = True
+                        break
+                    
+                if not isExist:
+                    break
+                
+            if not isExist:
+                raise ValidationError(_("Estas intentanto incluir en la estructura a " + struct.display_member_name + " que no es miembro de esta organización"))
+                
     

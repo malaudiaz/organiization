@@ -10,6 +10,7 @@
             <menuitem id="organization_city_menu_action" name="Ciudades" action="action_organization_city"/>  
             <menuitem id="organization_type_menu_action" name="Tipos de Organizaciones" action="action_organization_type"/> 
             <menuitem id="organization_position_menu_action" name="Cargos" action="action_organization_position"/> 
+            <!-- <menuitem id="organization_structure_menu_action" name="Estructura" action="action_organization_structure"/>  -->
         </menuitem>
         
     </menuitem>

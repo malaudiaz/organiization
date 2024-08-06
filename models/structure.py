@@ -10,14 +10,25 @@ class structure(models.Model):
 
     organization = fields.Many2one(
         comodel_name="organization.organization", string="Organización"
-    )
-
+    )  
+    
+    # @api.onchange('organization')  # depends on the fields that make up your name
+    # def _compute_organization_id(self):
+    #     for record in self:         
+    #         lines = []
+    #         for i in record.organization.members:
+    #             vals = (0,0,i)   
+    #             lines.append((vals))
+    #         record.members = lines
+                             
+            
     position = fields.Many2one(comodel_name="organization.position", string="Cargo")
-           
+
     members = fields.Many2one(
-        string="Miembro",
-        comodel_name="organization.members",
-        ondelete="set null"
+        string="Miembro", 
+        comodel_name="organization.members", 
+        ondelete="set null",
+        # domain="[('organization_id', '=', organization_id)]",
     )
 
     _sql_constraints = [
@@ -32,19 +43,25 @@ class structure(models.Model):
             "Miembro repetido",
         ),
     ]
-    
-    @api.onchange("position")
-    def _onchange_position(self):
-        members = self._get_members()
-        self.members = [(4, members.id)]  
 
-    def _get_members(self):
-        for member in self:
-            members = member.env["organization.organization"].search([("organization_id", "=", "1")])
-            if len(members) > 0:
-                print("dfsdfdsf")
-            else:
-                print("dfsdfdsf")
+    display_member_id =  fields.Integer(compute='_compute_display_value')
+    display_member_name = fields.Char(compute='_compute_display_value')
+
+    @api.depends('organization')  # depends on the fields that make up your name
+    def _compute_display_value(self):
+        for record in self:          
+            names = [record.members.firts_name, record.members.last_name]  # adjust this line based on your needs
+            record.display_member_id = record.members.id
+            record.display_member_name = ' '.join(filter(None, names))
+
+
+    def _get_organization_members(self):
+        for record in self:
+            miembros = None            
+            for item in record.organization.members:
+                print(item.firts_name)
+                miembros = item
             
-            return members
+            record.members = miembros
+
 
