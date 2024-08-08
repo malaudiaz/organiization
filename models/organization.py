@@ -86,9 +86,7 @@ class organization(models.Model):
                         break
                     
                 if not isExist:
-                    break
+                    raise ValidationError(_("Estas intentanto incluir en la estructura a " + struct.display_member_name + " que no es miembro de esta organización"))
                 
-            if not isExist:
-                raise ValidationError(_("Estas intentanto incluir en la estructura a " + struct.display_member_name + " que no es miembro de esta organización"))
                 
     
