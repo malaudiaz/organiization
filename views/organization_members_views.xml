@@ -63,13 +63,8 @@
         <field name="model">organization.members</field>
         <field name="arch" type="xml">
             <form string="Organization Members">
-
-
-
                 <sheet>
-
                     <field name="photo" widget="image" class="oe_avatar border border-primary" />
-
                     <group>
                         <field name="firts_name" placeholder="Nombre..." />
                         <field name="last_name" placeholder="Apellidos..." />
@@ -78,7 +73,6 @@
                         <field name="email" placeholder="Correo" />
                         <field name="country_id" placeholder="País..." options="{'no_open': True, 'no_create': True}"/>
                     </group>
-
                 </sheet>
             </form>
         </field>

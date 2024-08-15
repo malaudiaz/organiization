@@ -1,20 +1,18 @@
 
-.o_form_view .o_field_widget {
+/* .o_form_view .o_field_widget {
     padding: 2px 4px;
     border-color: blue; 
     background-color: #fcfcfc;   
-    /* border-bottom: 1px solid #000 !important; */
-    /* background-color: yellowgreen !important; */
-}
+} */
 
-.o_form_view .o_field_widget:hover {
+/* .o_form_view .o_field_widget:hover {
     border-color: #28a745 !important;
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
-} 
+}  */
 
-.custom-input{
+/* .custom-input{
     width: 100%;
     background-color: #fcfcfc;
     border: 0;
     padding: 10px;
-}
+} */

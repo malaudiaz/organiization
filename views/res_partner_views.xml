@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- View organization.members View Tree -->
+        <record id="view_res_members_tree" model="ir.ui.view">
+            <field name="name">view.members.tree</field>
+            <field name="model">res.partner</field>
+            <field name="mode">primary</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Nombre" />
+                    <field name="phone" string="Teléfono" />
+                    <field name="mobile" string="Móvil" />
+                    <field name="email" string="Correo" />
+                    <field name="city" string="Ciudad" />
+                    <field name="country_id" string="País" />
+                    <field name="function" string="Cargo" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- View res.partner form -->
+        <record id="view_res_members_form" model="ir.ui.view">
+            <field name="name">view.member.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="mode">primary</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet/notebook/page[@name='internal_notes']" position="attributes">
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </xpath>  
+                
+                <xpath
+                    expr="//sheet/notebook/page[@name='geo_location']" position="attributes">
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </xpath>  
+
+                <xpath
+                    expr="//sheet/notebook/page[@name='accounting']" position="attributes">
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </xpath> 
+
+                <xpath
+                    expr="//sheet/notebook/page[@name='membership']" position="attributes">
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </xpath> 
+
+                <xpath
+                    expr="//sheet/notebook/page[@name='accounting_disabled']" position="attributes">
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </xpath> 
+                
+
+                <!-- <xpath expr="//sheet/div[@name='button_box']" position="attributes">
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </xpath>  -->
+
+                <button name="schedule_meeting" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="action_view_opportunity" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+               
+                <button name="action_view_sale_order" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="action_view_pos_order" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="action_event_view" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="action_view_partner_invoices" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="action_open_employees" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="740" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="741" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="743" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                <button name="action_view_partner_invoices" position = "attributes" > 
+                    <attribute name="invisible" invisible="is_org_contact">1</attribute>
+                </button>
+
+                
+
+                <field name="category_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>                
+
+                <field name="vat" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>                
+
+            </field>
+        </record>
+
+        <!-- View res.partner search -->
+        <record id="view_res_partner_search" model="ir.ui.view">
+            <field name="name">view.res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group expand="1" string="Group By">
+                        <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action res.partner -->
+        <record id="action_res_partner" model="ir.actions.act_window">
+            <field name="name">Miembros</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('is_org_contact', '=', True)]</field>
+            <field name="context">{'default_is_org_contact': True}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    No existen miembros registrados
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_view_contact_tree">
+            <field name="sequence" eval="1"></field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_res_members_tree"></field>
+            <field name="act_window_id" ref="action_res_partner"></field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_view_contact_form">
+            <field name="sequence" eval="2" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_res_members_form"></field>
+            <field name="act_window_id" ref="action_res_partner"></field>
+        </record>
+    </data>
+</odoo>

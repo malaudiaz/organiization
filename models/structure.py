@@ -10,15 +10,18 @@ class structure(models.Model):
 
     organization = fields.Many2one(
         comodel_name="organization.organization", string="Organización"
-    )  
-    
+    )
+        
     # @api.onchange('organization')  # depends on the fields that make up your name
     # def _compute_organization_id(self):
     #     for record in self:         
     #         lines = []
-    #         for i in record.organization.members:
-    #             vals = (0,0,i)   
+    #         for m in record.organization.members:
+    #             print(m.id.origin)
+    #             vals = (4, m.id)
+    #             print(vals)
     #             lines.append((vals))
+                
     #         record.members = lines
                              
             
@@ -28,9 +31,9 @@ class structure(models.Model):
         string="Miembro", 
         comodel_name="organization.members", 
         ondelete="set null",
-        # domain="[('organization_id', '=', organization_id)]",
+        # domain="[('id','=',1)]",
     )
-
+    
     _sql_constraints = [
         (
             "unique_position",
@@ -55,6 +58,7 @@ class structure(models.Model):
             record.display_member_name = ' '.join(filter(None, names))
 
 
+    @api.depends('organization')  # depends on the fields that make up your name
     def _get_organization_members(self):
         for record in self:
             miembros = None            

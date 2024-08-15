@@ -10,6 +10,7 @@ class type(models.Model):
     name = fields.Char(
         string="Nombre", readonly=False, required=True, help="Introduzca el Nombre del tipo de organización"
     )
+    
     description = fields.Text(
         string="Descripción",
         readonly=False,
@@ -18,6 +19,6 @@ class type(models.Model):
     )
     
     organization_type = fields.One2many(
-        string="Organización", comodel_name="organization.organization", inverse_name="type"
+        string="Organización", comodel_name="res.company", inverse_name="type"
     )
     

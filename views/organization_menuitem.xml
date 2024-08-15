@@ -2,15 +2,12 @@
 <odoo>
     <menuitem id="organization_menu_root" name="Organizaciones">
         
-        <menuitem id="organization_menu_action" name="Organizaciones" action="action_organization_organization" sequence="1"/>  
-        <!-- <menuitem id="organization_members_menu_action" name="Miembros" action="action_organization_members" sequence="1"/>   -->
+        <menuitem id="cia_menu_action" name="Organizaciones" action="action_res_company" sequence="1"/>  
+        <menuitem id="contacts_menu_action" name="Miembros" action="action_res_partner" sequence="2"/>         
 
-        <menuitem id="organization_configuration_menu" name="Configuración" sequence="2">
-            <menuitem id="organization_country_menu_action" name="Paises" action="action_organization_country"/>  
-            <menuitem id="organization_city_menu_action" name="Ciudades" action="action_organization_city"/>  
+        <menuitem id="organization_configuration_menu" name="Configuración" sequence="4">
             <menuitem id="organization_type_menu_action" name="Tipos de Organizaciones" action="action_organization_type"/> 
             <menuitem id="organization_position_menu_action" name="Cargos" action="action_organization_position"/> 
-            <!-- <menuitem id="organization_structure_menu_action" name="Estructura" action="action_organization_structure"/>  -->
         </menuitem>
         
     </menuitem>
