@@ -22,3 +22,4 @@ class cia(models.Model):
         comodel_name="res.partner",
         inverse_name="organization"
     )
+

@@ -29,6 +29,11 @@
                             <h1>
                                 <field name="name" placeholder="e.g. My Company" />
                             </h1>
+
+                            <group>
+                                <field name="is_organization" string="Is organization"/>
+                            </group>
+
                         </div>
                         <notebook colspan="4">
                             <page string="Información General" name="general_info">
@@ -68,22 +73,9 @@
                                 </group>
                             </page>
                             <page string="Miembros" name="members">
-                                <field name="members" domain="[('is_org_contact', '=', True)]"
-                                    context="{'form_view_ref': 'view_res_members_forms', 'default_is_org_contact': True}"
-                                ></field>
 
+                                <field name="members" domain="[('is_org_contact', '=', True)]" context="{'form_view_ref': 'organization.view_res_members_forms', 'default_is_org_contact': True}"/>
 
-                                <!-- <field 
-                                    string="Miembros"
-                                    name="members"
-                                    domain="[('is_org_contact','=',True)]"
-                                    context="{'form_view_ref':'view_res_members_formsssssssss'}"
-                                /> -->
-
-                                <!-- domain="[('is_org_contact','=',True)]"
-                                context="{'form_view_ref':'view_res_members_form'}"  -->
-                                <!--
-                                ,'tree_view_ref':'view_small_members_tree','default_is_org_contact':True -->
                             </page>
                         </notebook>
                     </sheet>

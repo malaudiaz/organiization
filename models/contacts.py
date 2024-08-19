@@ -11,3 +11,4 @@ class contacts(models.Model):
     is_org_contact = fields.Boolean()
     
     organization = fields.Many2one(comodel_name="res.company", string="Organización", ondelete="cascade")
+

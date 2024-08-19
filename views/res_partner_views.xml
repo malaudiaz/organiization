@@ -26,14 +26,19 @@
             <field name="name">view.member.form</field>
             <field name="model">res.partner</field>
             <!-- <field name="inherit_id" ref="base.view_partner_form" /> -->
+
             <field name="mode">primary</field>
             <field name="priority">1</field>
+
+ 
+
             <field name="arch" type="xml">
 
                 <form>
                     <sheet>
                         <group>
-                            <field name="is_org_contact"/>
+                            <field name="is_org_contact" string="is org contact"/>
+                            <field name="organization" domain="[('is_organization', '=', True)]" context="{'form_view_ref': 'organization.view_res_company_form', 'default_is_organization': True}"/>
                         </group>
                     </sheet>
                 </form>

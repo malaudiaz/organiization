@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_res_company_manager,res_company_manager,model_res_company,,1,1,1,1
-access_res_partner_manager,res_partner_manager,model_res_partner,,1,1,1,1
 access_organization_type_manager,organization_type_manager,model_organization_type,,1,1,1,1
 access_organization_position_manager,organization_position_manager,model_organization_position,,1,1,1,1
+access_res_partner_manager,res_partner_manager,model_res_partner,,1,1,1,1
+access_res_company_manager,res_company_manager,model_res_company,,1,1,1,1
