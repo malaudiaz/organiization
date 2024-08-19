@@ -11,8 +11,8 @@
     "data": [
         "views/organization_type_views.xml",
         "views/organization_position_views.xml",
-        "views/res_company_views.xml",
         "views/res_partner_views.xml",
+        "views/res_company_views.xml",
         "views/organization_menuitem.xml",
         "security/ir.model.access.csv"
     ],

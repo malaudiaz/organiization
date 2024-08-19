@@ -68,10 +68,22 @@
                                 </group>
                             </page>
                             <page string="Miembros" name="members">
-                                <field 
-                                    name="members" 
+                                <field name="members" domain="[('is_org_contact', '=', True)]"
+                                    context="{'form_view_ref': 'view_res_members_forms', 'default_is_org_contact': True}"
+                                ></field>
+
+
+                                <!-- <field 
+                                    string="Miembros"
+                                    name="members"
                                     domain="[('is_org_contact','=',True)]"
-                                    context="{'form_view_ref':'view_res_members_form','tree_view_ref':'view_res_members_tree','default_is_org_contact':True}" />
+                                    context="{'form_view_ref':'view_res_members_formsssssssss'}"
+                                /> -->
+
+                                <!-- domain="[('is_org_contact','=',True)]"
+                                context="{'form_view_ref':'view_res_members_form'}"  -->
+                                <!--
+                                ,'tree_view_ref':'view_small_members_tree','default_is_org_contact':True -->
                             </page>
                         </notebook>
                     </sheet>
